@@ -2,6 +2,7 @@ import { createRestaurantDetailContainerTemplate } from '../templates/restaurant
 import RestaurantDicodingApi from '../../data/restaurant-dicoding-api'
 import UrlParser from './../../routes/url-parser'
 import FavoriteButtonPresenter from '../../utils/favorite-button-presenter'
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb'
 
 const Detail = {
   async render() {
@@ -23,6 +24,7 @@ const Detail = {
 
     await FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.getElementById('favorite-container'),
+      favoriteRestaurantModel: FavoriteRestaurantIdb,
       restaurant
     })
   }
