@@ -2,18 +2,24 @@ import { IMAGE_SIZE } from '../../global/config'
 import API_ENDPOINT from './../../global/api-endpoint'
 
 const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="favorite">
-     <i class="fa fa-heart-o" aria-hidden="true"></i> Favorite
+  <button aria-label="like this restaurant" id="add-favorite" class="favorite">
+     <i class="fa fa-heart-o" aria-hidden="true"></i> Add to Favorites
   </button>
 `
 
 const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="favorite" class="active">
-    <i class="fa fa-heart" aria-hidden="true"></i> Favorited
+  <button aria-label="unlike this restaurant" id="remove-favorite" class="favorite active">
+    <i class="fa fa-heart" aria-hidden="true"></i> Remove from Favorites
   </button>
 `
 
-const createRestaurantDetail = (restaurant = {}) => {
+const createRestaurantDetail = (restaurant = {
+  menus: {
+    foods: [],
+    drinks: []
+  },
+  customerReviews: []
+}) => {
   const imageEndPoint = API_ENDPOINT.IMAGE({
     pictureId: restaurant.pictureId,
     size: IMAGE_SIZE.LARGE

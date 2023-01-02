@@ -1,5 +1,5 @@
 import { createRestaurantDeck } from '../templates/restaurant-deck'
-import RestoDicodingApi from './../../data/resto-dicoding-api'
+import RestaurantDicodingApi from '../../data/restaurant-dicoding-api'
 
 const Home = {
   async render() {
@@ -22,7 +22,7 @@ const Home = {
   },
 
   async afterRender() {
-    let response = await RestoDicodingApi.getList()
+    let response = await RestaurantDicodingApi.getList()
 
     document
       .getElementById('restaurant-deck')
@@ -32,9 +32,9 @@ const Home = {
       .getElementById('search')
       .addEventListener('change', async (event) => {
         if (event.target.value == null || event.target.value === '') {
-          response = await RestoDicodingApi.getList()
+          response = await RestaurantDicodingApi.getList()
         } else {
-          response = await RestoDicodingApi.getListByKeyword(event.target.value)
+          response = await RestaurantDicodingApi.getListByKeyword(event.target.value)
         }
 
         document

@@ -1,7 +1,7 @@
 import { createRestaurantDeck } from '../templates/restaurant-deck'
-import FavoriteRestoIdb from './../../data/favorite-resto-idb'
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb'
 
-const Favorite = {
+const Favorites = {
   async render() {
     return `
     <section id="restaurants">
@@ -13,7 +13,7 @@ const Favorite = {
   },
 
   async afterRender() {
-    const restaurants = await FavoriteRestoIdb.getAllResto()
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant()
 
     document
       .getElementById('restaurant-deck')
@@ -21,4 +21,4 @@ const Favorite = {
   }
 }
 
-export default Favorite
+export default Favorites

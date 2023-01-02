@@ -6,7 +6,8 @@
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "serve": "http-server dist"
+    "serve": "http-server dist",
+    "test": "karma start"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,14 @@
     "eslint-plugin-promise": "^6.1.1",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",
+    "jasmine-ajax": "^4.0.0",
+    "jasmine-core": "^4.5.0",
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-eslint": "^2.2.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-sourcemap-loader": "^0.3.8",
+    "karma-webpack": "^5.0.0",
     "prettier-config-standard": "^5.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",

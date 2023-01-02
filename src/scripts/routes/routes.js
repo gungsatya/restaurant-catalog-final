@@ -1,11 +1,13 @@
 import Detail from '../views/pages/detail'
-import Favorite from '../views/pages/favorite'
+import Favorites from '../views/pages/favorites'
 import Home from '../views/pages/home'
+import Page404 from '../views/pages/page404'
 
 const routes = {
   '/': Home, // default page
-  '/favorite': Favorite,
-  '/detail/:id': Detail
+  '/favorites': Favorites,
+  '/detail/:id': Detail,
+  '/404': Page404
 }
 
 export default routes

@@ -1,49 +1,49 @@
-import {
-  createLikeButtonTemplate,
-  createLikedButtonTemplate
-} from '../views/templates/restaurant-detail'
-import FavoriteRestoIdb from './../data/favorite-resto-idb'
+import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/restaurant-detail'
+import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb'
 
 const FavoriteInitiator = {
-  async init({ favoriteButtonContainer, resto }) {
+  async init({
+    favoriteButtonContainer,
+    restaurant
+  }) {
     this._favoriteButtonContainer = favoriteButtonContainer
-    this._resto = resto
+    this._restaurant = restaurant
 
     await this._renderButton()
   },
 
   async _renderButton() {
-    const { id } = this._resto
+    const { id } = this._restaurant
 
-    if (await this._isRestoExist(id)) {
+    if (await this._isRestaurantExist(id)) {
       this._renderFavorited()
     } else {
       this._renderFavorite()
     }
   },
 
-  async _isRestoExist(id) {
-    const resto = await FavoriteRestoIdb.getResto(id)
-    return !!resto
+  async _isRestaurantExist(id) {
+    const restaurant = await FavoriteRestaurantIdb.getRestaurant(id)
+    return !!restaurant
   },
 
   _renderFavorite() {
     this._favoriteButtonContainer.innerHTML = createLikeButtonTemplate()
 
-    const favoriteButton = document.querySelector('#favorite')
+    const favoriteButton = document.querySelector('#add-favorite')
     favoriteButton.addEventListener('click', async () => {
-      await FavoriteRestoIdb.putResto(this._resto)
-      this._renderButton()
+      await FavoriteRestaurantIdb.putRestaurant(this._restaurant)
+      await this._renderButton()
     })
   },
 
   _renderFavorited() {
     this._favoriteButtonContainer.innerHTML = createLikedButtonTemplate()
 
-    const favoriteButton = document.querySelector('#favorite')
+    const favoriteButton = document.querySelector('#remove-favorite')
     favoriteButton.addEventListener('click', async () => {
-      await FavoriteRestoIdb.deleteResto(this._resto.id)
-      this._renderButton()
+      await FavoriteRestaurantIdb.deleteRestaurant(this._restaurant.id)
+      await this._renderButton()
     })
   }
 }

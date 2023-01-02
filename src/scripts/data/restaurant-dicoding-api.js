@@ -1,18 +1,14 @@
 import API_ENDPOINT from '../global/api-endpoint'
 
-class RestoDicodingApi {
+class RestaurantDicodingApi {
   static async getList() {
     const response = await fetch(API_ENDPOINT.LIST)
-    const responseJson = await response.json()
-
-    return responseJson
+    return await response.json()
   }
 
   static async getListByKeyword(keyword) {
     const response = await fetch(API_ENDPOINT.SEARCH(keyword))
-    const responseJson = await response.json()
-
-    return responseJson
+    return await response.json()
   }
 
   static async setReview(data) {
@@ -22,17 +18,13 @@ class RestoDicodingApi {
       headers: { 'Content-Type': 'application/json' },
       body: dataJson
     })
-    const responseJson = await response.json()
-
-    return responseJson
+    return await response.json()
   }
 
   static async getDetail(id) {
     const response = await fetch(API_ENDPOINT.DETAIL(id))
-    const responseJson = await response.json()
-
-    return responseJson
+    return await response.json()
   }
 }
 
-export default RestoDicodingApi
+export default RestaurantDicodingApi

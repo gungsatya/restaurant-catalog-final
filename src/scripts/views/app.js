@@ -4,7 +4,12 @@ import DrawerInitiator from '../utils/drawer-initiator'
 import { initCustomElement } from './templates/elements/init-custom-element'
 
 export default class App {
-  constructor({ button, drawer, content, loadingIndicator }) {
+  constructor({
+    button,
+    drawer,
+    content,
+    loadingIndicator
+  }) {
     this._button = button
     this._drawer = drawer
     this._content = content
@@ -24,14 +29,22 @@ export default class App {
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner()
-    const page = routes[url]
+    const page = routes[url] ?? routes['/404']
     this._loadingIndicator.style.display = 'flex'
     this._content.innerHTML = await page.render()
 
-    await page.afterRender().finally(() => {
-      this._loadingIndicator.style.display = 'none'
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    })
+    await page.afterRender()
+      .catch((e) => {
+        console.error(e)
+        window.location.hash = '#/404'
+      })
+      .finally(() => {
+        this._loadingIndicator.style.display = 'none'
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+      })
 
     const skipLinkElem = document.querySelector('.skip-link')
     skipLinkElem.addEventListener('click', (event) => {
