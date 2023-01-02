@@ -1,7 +1,7 @@
-import { createRestaurantDetail } from '../templates/restaurant-detail'
+import { createRestaurantDetailContainerTemplate } from '../templates/restaurant-detail'
 import RestaurantDicodingApi from '../../data/restaurant-dicoding-api'
 import UrlParser from './../../routes/url-parser'
-import FavoriteInitiator from './../../utils/favorite-initiator'
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter'
 
 const Detail = {
   async render() {
@@ -19,9 +19,9 @@ const Detail = {
     const restaurant = response.restaurant
 
     document.querySelector('#restaurant-detail .container').innerHTML =
-      createRestaurantDetail(restaurant)
+      createRestaurantDetailContainerTemplate(restaurant)
 
-    await FavoriteInitiator.init({
+    await FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.getElementById('favorite-container'),
       restaurant
     })

@@ -1,19 +1,19 @@
 import { IMAGE_SIZE } from '../../global/config'
 import API_ENDPOINT from './../../global/api-endpoint'
 
-const createLikeButtonTemplate = () => `
+const createAddToFavoritesButtonTemplate = () => `
   <button aria-label="like this restaurant" id="add-favorite" class="favorite">
      <i class="fa fa-heart-o" aria-hidden="true"></i> Add to Favorites
   </button>
 `
 
-const createLikedButtonTemplate = () => `
+const createRemoveFromFavoritesButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="remove-favorite" class="favorite active">
     <i class="fa fa-heart" aria-hidden="true"></i> Remove from Favorites
   </button>
 `
 
-const createRestaurantDetail = (restaurant = {
+const createRestaurantDetailContainerTemplate = (restaurant = {
   menus: {
     foods: [],
     drinks: []
@@ -85,7 +85,7 @@ const createRestaurantDetail = (restaurant = {
 }
 
 export {
-  createRestaurantDetail,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate
+  createRestaurantDetailContainerTemplate,
+  createAddToFavoritesButtonTemplate,
+  createRemoveFromFavoritesButtonTemplate
 }
