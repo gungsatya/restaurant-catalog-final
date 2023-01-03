@@ -126,7 +126,7 @@ main {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     flex: 1;
 }
 
@@ -180,13 +180,14 @@ section#hero p {
 section#restaurants {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    flex: 1;
 }
 
 section#restaurants .container {
     padding: 30px 35px;
     position: relative;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -195,7 +196,7 @@ section#restaurants .container {
 
 section#restaurants .title {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2em;
     line-height: 1.75rem;
     font-weight: 700;
     margin-bottom: 0.5em;
@@ -472,4 +473,9 @@ section#restaurant-detail .container {
     100% {
         transform: rotate(360deg);
     }
+}
+
+#have-no-favorites {
+    font-style: italic;
+    font-size: 14px;
 }

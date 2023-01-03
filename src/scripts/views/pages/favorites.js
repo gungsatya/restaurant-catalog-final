@@ -14,10 +14,17 @@ const Favorites = {
 
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant()
-
-    document
+    const restaurantDeckElement = document
       .getElementById('restaurant-deck')
-      .replaceChildren(...createRestaurantDeck(restaurants))
+
+    if (restaurants.length > 0) {
+      restaurantDeckElement.style = null
+      restaurantDeckElement
+        .replaceChildren(...createRestaurantDeck(restaurants))
+    } else {
+      restaurantDeckElement.style = 'grid-template-columns: 1fr;'
+      restaurantDeckElement.innerHTML = '<p style="text-align: center" id="have-no-favorites">You have no favorite restaurants yet</p>'
+    }
   }
 }
 
