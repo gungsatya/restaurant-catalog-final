@@ -1,7 +1,7 @@
 import {
   createAddToFavoritesButtonTemplate,
   createRemoveFromFavoritesButtonTemplate
-} from '../views/templates/restaurant-detail'
+} from '../templates/restaurant-detail'
 
 const FavoriteButtonPresenter = {
   async init({

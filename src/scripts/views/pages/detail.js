@@ -1,7 +1,7 @@
 import { createRestaurantDetailContainerTemplate } from '../templates/restaurant-detail'
 import RestaurantDicodingApi from '../../data/restaurant-dicoding-api'
 import UrlParser from './../../routes/url-parser'
-import FavoriteButtonPresenter from '../../utils/favorite-button-presenter'
+import FavoriteButtonPresenter from '../presenters/favorite-button-presenter'
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb'
 
 const Detail = {

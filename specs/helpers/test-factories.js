@@ -1,4 +1,4 @@
-import FavoriteButtonPresenter from '../../src/scripts/utils/favorite-button-presenter'
+import FavoriteButtonPresenter from '../../src/scripts/views/presenters/favorite-button-presenter'
 import FavoriteRestaurantIdb from '../../src/scripts/data/favorite-restaurant-idb'
 
 const createFavoriteButtonPresenterWithRestaurant = async (restaurant) => {

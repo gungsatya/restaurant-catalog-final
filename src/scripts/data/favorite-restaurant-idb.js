@@ -23,6 +23,15 @@ const FavoriteRestaurantIdb = {
   async getAllRestaurant() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME)
   },
+  async getAllRestaurantByKeyword(keyword) {
+    return (await this.getAllRestaurant()).filter((restaurant) => {
+      const loweredCaseRestaurantName = (restaurant.name || '-').toLowerCase()
+      const jammedMovieTitle = loweredCaseRestaurantName.replace(/\s/g, '')
+      const loweredCaseQuery = keyword.toLowerCase()
+      const jammedQuery = loweredCaseQuery.replace(/\s/g, '')
+      return jammedMovieTitle.indexOf(jammedQuery) !== -1
+    })
+  },
   async putRestaurant(restaurant) {
     // eslint-disable-next-line no-prototype-builtins
     if (!restaurant.hasOwnProperty('id')) {
