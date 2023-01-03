@@ -7,7 +7,7 @@ const Favorites = {
     <section id="restaurants">
       <div class="container">
         <h2 class="title">Your Favorite Restaurant</h2>
-        <input type="text" placeholder="Search and [ENTER]" id="search">
+        <input type="text" placeholder="Search and [ENTER]" id="search-favorite">
         <div class="card-deck" id="restaurant-deck"></div>
       </div>
     </section>`
@@ -15,7 +15,7 @@ const Favorites = {
 
   async afterRender() {
     new FavoriteRestaurantSearchPresenter({
-      keywordInputElement: document.getElementById('search'),
+      keywordInputElement: document.getElementById('search-favorite'),
       collectionContainerElement: document.getElementById('restaurant-deck'),
       favoriteRestaurantModel: FavoriteRestaurantIdb
     })

@@ -5,7 +5,17 @@
     "node": true
   },
   "extends": "standard",
-  "overrides": [],
+  "overrides": [
+    {
+      "files": [
+        "e2e/**/*.spec.js",
+        "specs/**/*.spec.js"
+      ],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"

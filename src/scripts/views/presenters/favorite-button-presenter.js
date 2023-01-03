@@ -34,7 +34,7 @@ const FavoriteButtonPresenter = {
   _renderAddToFavoriteButton() {
     this._favoriteButtonContainer.innerHTML = createAddToFavoritesButtonTemplate()
 
-    const favoriteButton = document.querySelector('#add-favorite')
+    const favoriteButton = document.querySelector('button#add-favorite')
     favoriteButton.addEventListener('click', async () => {
       await this._favoriteRestaurantIdb.putRestaurant(this._restaurant)
       await this._renderButton()
@@ -44,7 +44,7 @@ const FavoriteButtonPresenter = {
   _renderRemoveFromFavoriteButton() {
     this._favoriteButtonContainer.innerHTML = createRemoveFromFavoritesButtonTemplate()
 
-    const favoriteButton = document.querySelector('#remove-favorite')
+    const favoriteButton = document.querySelector('button#remove-favorite')
     favoriteButton.addEventListener('click', async () => {
       await this._favoriteRestaurantIdb.deleteRestaurant(this._restaurant.id)
       await this._renderButton()
