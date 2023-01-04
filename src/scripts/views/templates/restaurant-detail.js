@@ -61,9 +61,9 @@ const createRestaurantDetailContainerTemplate = (restaurant = {
       <div class="badge">Rating ${restaurant.rating}</div>
       <div class="restaurant-tumb">
           <picture>
-              <source media="(max-width: 600px)" srcset="${smallImageUrl}" type="image/jpeg">
-              <source media="(max-width: 1000px)" srcset="${mediumImageUrl}" type="image/jpeg">
-              <img class="lazyload" src="${largeImageUrl}" alt="Restaurant ${restaurant.name} Picture">
+              <source media="(max-width: 600px)" data-srcset="${smallImageUrl} 240w, ${smallImageUrl} 600w," type="image/jpeg">
+              <source media="(max-width: 1000px)" data-srcset="${mediumImageUrl} 700w, ${mediumImageUrl} 1000w" type="image/jpeg">
+              <img class="lazyload" data-src="${largeImageUrl}" alt="Restaurant ${restaurant.name} Picture">
           </picture>
       </div>
       <div class="restaurant-details">

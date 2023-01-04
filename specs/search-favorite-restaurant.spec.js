@@ -20,7 +20,7 @@ describe('Searching favorite restaurant', () => {
 
   const constructPresenter = () => {
     spyOn(FavoriteRestaurantIdb, 'getAllRestaurantByKeyword')
-    presenter = new FavoriteRestaurantSearchPresenter({
+    presenter = FavoriteRestaurantSearchPresenter.init({
       keywordInputElement: document.getElementById('search'),
       collectionContainerElement: document.getElementById('deck'),
       favoriteRestaurantModel: FavoriteRestaurantIdb

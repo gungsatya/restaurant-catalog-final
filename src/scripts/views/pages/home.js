@@ -4,6 +4,21 @@ import RestaurantDicodingApi from '../../data/restaurant-dicoding-api'
 const Home = {
   async render() {
     return `
+        <style>
+            section#hero {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url(/images/hero-image_2-small.jpg);
+                background-position: top;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            @media screen and (min-width: 1200px) { 
+              section#hero {
+                 background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url(/images/hero-image_2-large.jpg);
+              }
+            }
+        </style>
         <section id="hero">
           <div class="hero-container">
             <h1>Resto App</h1>

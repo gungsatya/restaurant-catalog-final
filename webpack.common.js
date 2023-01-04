@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
@@ -31,10 +32,16 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
-          noErrorOnMissing: true
+          noErrorOnMissing: true,
+          globOptions: {
+            ignore: ['**/images/**']
+          }
         }
       ]
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'json'
+    })
   ]
 }

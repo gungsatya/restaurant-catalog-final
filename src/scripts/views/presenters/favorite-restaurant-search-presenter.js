@@ -1,7 +1,7 @@
 import { createRestaurantDeck } from '../templates/restaurant-deck'
 
-class FavoriteRestaurantSearchPresenter {
-  constructor({
+const FavoriteRestaurantSearchPresenter = {
+  init({
     keywordInputElement,
     collectionContainerElement,
     favoriteRestaurantModel
@@ -13,17 +13,18 @@ class FavoriteRestaurantSearchPresenter {
 
     this._listenToKeywordInput()
     this._searchByKeyword('')
-  }
+    return this
+  },
 
   get latestKeyword() {
     return this._latestKeyword
-  }
+  },
 
   _listenToKeywordInput() {
     this._keywordInputElement.addEventListener('change', async (event) => {
       await this._searchByKeyword(event.target.value)
     })
-  }
+  },
 
   async _searchByKeyword(keyword) {
     this._latestKeyword = keyword
@@ -35,7 +36,7 @@ class FavoriteRestaurantSearchPresenter {
     }
 
     this.renderRestaurantDeck(restaurants)
-  }
+  },
 
   renderRestaurantDeck(restaurants = []) {
     if (restaurants.length > 0) {
