@@ -32,14 +32,13 @@ export default class App {
     const page = routes[url] ?? routes['/404']
     this._loadingIndicator.style.display = 'flex'
     this._content.innerHTML = await page.render()
-
+    this._loadingIndicator.style.display = 'none'
     await page.afterRender()
       .catch((e) => {
         console.error(e)
         window.location.hash = '#/404'
       })
       .finally(() => {
-        this._loadingIndicator.style.display = 'none'
         window.scrollTo({
           top: 0,
           behavior: 'smooth'

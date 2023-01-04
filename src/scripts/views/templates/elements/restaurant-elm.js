@@ -37,7 +37,7 @@ export default class RestaurantElm extends HTMLElement {
                 <picture>
                     <source media="(max-width: 600px)" srcset="${smallImageUrl}" type="image/jpeg">
                     <source media="(max-width: 1000px)" srcset="${mediumImageUrl}" type="image/jpeg">
-                    <img class="lazyload" src="${largeImageUrl}" alt="Restaurant ${this.name} Picture">
+                    <img class="lazyload" width="200" height="200" src="${largeImageUrl}" alt="Restaurant ${this.name} Picture">
                 </picture>
             </div>
             <div class="restaurant-details">

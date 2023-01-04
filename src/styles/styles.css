@@ -54,11 +54,11 @@ header .wrapper .site-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
 header .site-title {
-    font-size: 26px;
     line-height: 56px;
     letter-spacing: -1px;
     color: #fff;
@@ -151,6 +151,7 @@ section#hero {
     position: relative;
     min-height: 50vh;
     min-width: 100vw;
+    overflow: hidden;
 }
 
 section#hero .hero-container {
@@ -162,11 +163,16 @@ section#hero .hero-container {
     color: white;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 15px;
+
+    min-width: 275px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 section#hero h1 {
     font-size: 2.25em;
-    line-height: 1;
     letter-spacing: -0.025em;
     font-weight: 800;
     margin-bottom: 1rem;
