@@ -15,9 +15,10 @@ Before(({ I }) => {
 
 Scenario('showing favorites restaurant', ({ I }) => {
   I.dontSeeElement('#have-no-favorites')
+  I.seeElement('restaurant-elm')
 })
 
-Scenario('remove one restaurant to favorites', async ({ I }) => {
+Scenario('remove one restaurant from favorites', async ({ I }) => {
   I.click(locate('restaurant-elm a').first())
   I.waitToHide('#loading')
   I.seeElement('.restaurant-details')
@@ -29,4 +30,17 @@ Scenario('remove one restaurant to favorites', async ({ I }) => {
   I.waitToHide('#loading')
   I.dontSeeElement('restaurant-elm')
   I.dontSee(restaurantTitle, '#restaurant-deck')
+})
+
+Scenario('remove-from-favorite button change to add-to-favorites button after remove restaurant from favorites', async ({ I }) => {
+  I.click(locate('restaurant-elm a').first())
+  I.waitToHide('#loading')
+  I.seeElement('.restaurant-details')
+  I.dontSeeElement('button#add-favorite')
+  I.seeElement('button#remove-favorite')
+  I.wait(1)
+  I.click('button#remove-favorite')
+  I.wait(1)
+  I.seeElement('button#add-favorite')
+  I.dontSeeElement('button#remove-favorite')
 })
