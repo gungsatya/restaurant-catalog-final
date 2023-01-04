@@ -223,11 +223,6 @@ footer {
 }
 
 section#hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../public/images/heros/hero-image_2.jpg');
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: relative;
     min-height: 50vh;
     min-width: 100vw;

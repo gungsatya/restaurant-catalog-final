@@ -3,6 +3,7 @@ import '../styles/styles.css'
 import '../styles/responsive.css'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
+import 'font-awesome/css/font-awesome.min.css'
 import App from './views/app'
 import swRegister from './utils/sw-register'
 

@@ -14,7 +14,7 @@ const Favorites = {
   },
 
   async afterRender() {
-    new FavoriteRestaurantSearchPresenter({
+    FavoriteRestaurantSearchPresenter.init({
       keywordInputElement: document.getElementById('search-favorite'),
       collectionContainerElement: document.getElementById('restaurant-deck'),
       favoriteRestaurantModel: FavoriteRestaurantIdb

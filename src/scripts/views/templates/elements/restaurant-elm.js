@@ -35,9 +35,9 @@ export default class RestaurantElm extends HTMLElement {
             <div class="badge">Rating ${this.rating}</div>
             <div class="restaurant-tumb">
                 <picture>
-                    <source media="(max-width: 600px)" srcset="${smallImageUrl}" type="image/jpeg">
-                    <source media="(max-width: 1000px)" srcset="${mediumImageUrl}" type="image/jpeg">
-                    <img class="lazyload" width="200" height="200" src="${largeImageUrl}" alt="Restaurant ${this.name} Picture">
+                    <source media="(max-width: 600px)" data-srcset="${smallImageUrl} 240w, ${smallImageUrl} 600w," type="image/jpeg">
+                    <source media="(max-width: 1000px)" data-srcset="${mediumImageUrl} 700w, ${mediumImageUrl} 1000w" type="image/jpeg">
+                    <img class="lazyload" data-src="${largeImageUrl}" alt="Restaurant ${this.name} Picture">
                 </picture>
             </div>
             <div class="restaurant-details">
