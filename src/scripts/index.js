@@ -1,7 +1,15 @@
 import 'regenerator-runtime'
 import '../styles/styles.css'
 import '../styles/responsive.css'
+import 'lazysizes'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import App from './views/app'
+import swRegister from './utils/sw-register'
+
+// eslint-disable-next-line no-unused-vars
+const START = 10
+// eslint-disable-next-line no-unused-vars
+const NUMBER_OF_IMAGES = 100
 
 // eslint-disable-next-line no-unused-vars
 const app = new App({
@@ -17,5 +25,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage()
-  // swRegister()
+  swRegister()
 })

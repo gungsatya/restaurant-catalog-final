@@ -1,4 +1,5 @@
 import API_ENDPOINT from './../../../global/api-endpoint'
+import { IMAGE_SIZE } from '../../../global/config'
 
 export default class RestaurantElm extends HTMLElement {
   id = null
@@ -16,13 +17,28 @@ export default class RestaurantElm extends HTMLElement {
     this.rating = this.getAttribute('rating') || null
     this.description = this.getAttribute('description') || null
 
-    const imageEndPoint = API_ENDPOINT.IMAGE({ pictureId: this.pictureId })
+    const smallImageUrl = API_ENDPOINT.IMAGE({
+      pictureId: this.pictureId,
+      size: IMAGE_SIZE.SMALL
+    })
+    const mediumImageUrl = API_ENDPOINT.IMAGE({
+      pictureId: this.pictureId,
+      size: IMAGE_SIZE.MEDIUM
+    })
+    const largeImageUrl = API_ENDPOINT.IMAGE({
+      pictureId: this.pictureId,
+      size: IMAGE_SIZE.LARGE
+    })
 
     this.innerHTML = `
     <div class="restaurant-card">
             <div class="badge">Rating ${this.rating}</div>
             <div class="restaurant-tumb">
-                <img src="${imageEndPoint}" alt="${this.name} Restaurant Picture">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="${smallImageUrl}" type="image/jpeg">
+                    <source media="(max-width: 1000px)" srcset="${mediumImageUrl}" type="image/jpeg">
+                    <img class="lazyload" src="${largeImageUrl}" alt="Restaurant ${this.name} Picture">
+                </picture>
             </div>
             <div class="restaurant-details">
                 <span class="restaurant-city">${this.city}</span>

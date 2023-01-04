@@ -20,7 +20,15 @@ const createRestaurantDetailContainerTemplate = (restaurant = {
   },
   customerReviews: []
 }) => {
-  const imageEndPoint = API_ENDPOINT.IMAGE({
+  const smallImageUrl = API_ENDPOINT.IMAGE({
+    pictureId: restaurant.pictureId,
+    size: IMAGE_SIZE.SMALL
+  })
+  const mediumImageUrl = API_ENDPOINT.IMAGE({
+    pictureId: restaurant.pictureId,
+    size: IMAGE_SIZE.MEDIUM
+  })
+  const largeImageUrl = API_ENDPOINT.IMAGE({
     pictureId: restaurant.pictureId,
     size: IMAGE_SIZE.LARGE
   })
@@ -52,7 +60,11 @@ const createRestaurantDetailContainerTemplate = (restaurant = {
   <div class="restaurant-card">
       <div class="badge">Rating ${restaurant.rating}</div>
       <div class="restaurant-tumb">
-          <img src="${imageEndPoint}" alt="${restaurant.name} Restaurant Picture">
+          <picture>
+              <source media="(max-width: 600px)" srcset="${smallImageUrl}" type="image/jpeg">
+              <source media="(max-width: 1000px)" srcset="${mediumImageUrl}" type="image/jpeg">
+              <img class="lazyload" src="${largeImageUrl}" alt="Restaurant ${restaurant.name} Picture">
+          </picture>
       </div>
       <div class="restaurant-details">
           <span class="restaurant-city">${restaurant.city}</span>
