@@ -18,9 +18,6 @@ module.exports = merge(common, {
     },
     compress: true
   },
-  optimization: {
-    minimizer: false
-  },
   plugins: [
     new BundleAnalyzerPlugin()
   ]
